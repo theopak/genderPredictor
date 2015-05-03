@@ -4,6 +4,7 @@
 genderPredictor.py
 """
 
+from __future__ import print_function
 from nltk import NaiveBayesClassifier, classify
 import USSSALoader
 import random
@@ -68,10 +69,10 @@ class genderPredictor():
 if __name__ == "__main__":
     gp = genderPredictor()
     accuracy = gp.trainAndTest()
-    print 'Accuracy: %f' % accuracy
-    print 'Most Informative Features'
+    print('Accuracy:', accuracy)
+    print('Most Informative Features')
     feats = gp.getMostInformativeFeatures(10)
     for feat in feats:
-        print '\t%s = %s' % feat
+        print('\t', feat[0], '=', feat[1])
 
-    print '\nStephen is classified as %s' % gp.classify('Stephen')
+    print('\nStephen is classified as', gp.classify('Stephen'))
